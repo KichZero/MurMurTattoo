@@ -1,4 +1,5 @@
-import React, { CSSProperties, PropsWithChildren, useEffect, useId, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useId, useLayoutEffect, useRef } from 'react';
+import type { CSSProperties, PropsWithChildren } from 'react';
 
 import './ElectricBorder.css';
 

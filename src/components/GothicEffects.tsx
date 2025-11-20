@@ -37,6 +37,7 @@ export function ParticleEffect() {
     }
 
     function animate() {
+      if (!ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.fillStyle = 'rgba(139, 0, 0, 0.5)'
 
