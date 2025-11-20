@@ -37,8 +37,6 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (isMobile) return; // На мобильных не обновляем цвет
-
     const updateTextColor = () => {
       if (circularTextRef.current) {
         const svg = circularTextRef.current.querySelector("svg");
@@ -54,7 +52,8 @@ export default function Home() {
 
     // Обновляем сразу
     updateTextColor();
-    const interval = setInterval(updateTextColor, 200);
+    // На мобильных реже обновляем для производительности
+    const interval = setInterval(updateTextColor, isMobile ? 500 : 200);
 
     return () => clearInterval(interval);
   }, [isMobile]);
@@ -73,26 +72,20 @@ export default function Home() {
               }}
             >
               <div className="circular-text-wrapper" ref={circularTextRef}>
-                {isMobile ? (
-                  <h1 className="circular-text-mobile">
-                    MUR MUR 13 · TATTOO STUDIO
-                  </h1>
-                ) : (
-                  <Suspense
-                    fallback={
-                      <h1 className="circular-text-mobile">
-                        MUR MUR 13 · TATTOO STUDIO
-                      </h1>
-                    }
-                  >
-                    <CircularText
-                      text="MUR MUR 13 · TATTOO STUDIO · "
-                      spinDuration={15}
-                      onHover="slowDown"
-                      className="circular-text-gothic"
-                    />
-                  </Suspense>
-                )}
+                <Suspense
+                  fallback={
+                    <h1 className="circular-text-mobile">
+                      MUR MUR 13 · TATTOO STUDIO
+                    </h1>
+                  }
+                >
+                  <CircularText
+                    text="MUR MUR 13 · TATTOO STUDIO · "
+                    spinDuration={isMobile ? 20 : 15}
+                    onHover="slowDown"
+                    className="circular-text-gothic"
+                  />
+                </Suspense>
               </div>
             </div>
             <p className="hero-description slide-up-delay-2">

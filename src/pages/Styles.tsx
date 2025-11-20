@@ -2,97 +2,6 @@ import { useMemo, useState, useEffect } from "react";
 import { styleCategories } from "../data/styles";
 import DomeGallery from "../components/DomeGallery";
 
-// Простая сетка для мобильных вместо тяжелой 3D галереи
-type GalleryImage = {
-  src: string;
-  alt: string;
-  title: string;
-  description: string;
-  allImages: string[];
-};
-
-const SimpleGrid = ({
-  images,
-  onItemClick,
-}: {
-  images: GalleryImage[];
-  onItemClick: (item: GalleryImage) => void;
-}) => {
-  return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
-        gap: "1rem",
-        padding: "1rem",
-        maxWidth: "1200px",
-        margin: "0 auto",
-      }}
-    >
-      {images.map((item, index) => (
-        <div
-          key={index}
-          onClick={() => onItemClick(item)}
-          style={{
-            position: "relative",
-            aspectRatio: "1",
-            borderRadius: "12px",
-            overflow: "hidden",
-            cursor: "pointer",
-            background: "#1a1a1a",
-            border: "2px solid rgba(54, 127, 175, 0.3)",
-            transition: "transform 0.2s, border-color 0.2s",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "scale(1.05)";
-            e.currentTarget.style.borderColor = "rgba(54, 127, 175, 0.6)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.borderColor = "rgba(54, 127, 175, 0.3)";
-          }}
-        >
-          <img
-            src={item.src}
-            alt={item.alt}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              filter: "grayscale(1)",
-              transition: "filter 0.3s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "grayscale(0)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "grayscale(1)";
-            }}
-            loading="lazy"
-          />
-          <div
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              background:
-                "linear-gradient(to top, rgba(0,0,0,0.9), transparent)",
-              padding: "0.5rem",
-              color: "white",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              textAlign: "center",
-            }}
-          >
-            {item.title}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
 export default function Styles() {
   const [selectedStyle, setSelectedStyle] = useState<{
     images: string[];
@@ -233,30 +142,26 @@ export default function Styles() {
 
       <div className="styles-gallery-wrapper fade-in-delay-3">
         {galleryImages.length > 0 ? (
-          isMobile ? (
-            <SimpleGrid images={galleryImages} onItemClick={handleItemClick} />
-          ) : (
-            <DomeGallery
-              images={galleryImages}
-              fit={0.7}
-              fitBasis="auto"
-              minRadius={900}
-              maxRadius={Infinity}
-              padFactor={0.15}
-              overlayBlurColor="transparent"
-              maxVerticalRotationDeg={5}
-              dragSensitivity={20}
-              enlargeTransitionMs={300}
-              segments={40}
-              dragDampening={2}
-              openedImageWidth="600px"
-              openedImageHeight="600px"
-              imageBorderRadius="30px"
-              openedImageBorderRadius="30px"
-              grayscale={true}
-              onItemClick={handleItemClick}
-            />
-          )
+          <DomeGallery
+            images={galleryImages}
+            fit={isMobile ? 0.5 : 0.7}
+            fitBasis="auto"
+            minRadius={isMobile ? 600 : 900}
+            maxRadius={Infinity}
+            padFactor={isMobile ? 0.2 : 0.15}
+            overlayBlurColor="transparent"
+            maxVerticalRotationDeg={isMobile ? 3 : 5}
+            dragSensitivity={isMobile ? 30 : 20}
+            enlargeTransitionMs={isMobile ? 200 : 300}
+            segments={isMobile ? 30 : 40}
+            dragDampening={isMobile ? 3 : 2}
+            openedImageWidth={isMobile ? "90vw" : "600px"}
+            openedImageHeight={isMobile ? "90vh" : "600px"}
+            imageBorderRadius="30px"
+            openedImageBorderRadius="30px"
+            grayscale={true}
+            onItemClick={handleItemClick}
+          />
         ) : (
           <div style={{ padding: "2rem", textAlign: "center", color: "white" }}>
             Загрузка галереи...

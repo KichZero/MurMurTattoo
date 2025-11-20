@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties, PropsWithChildren } from 'react';
 
 import './ElectricBorder.css';
@@ -21,6 +21,16 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   className,
   style
 }: ElectricBorderProps) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   const rawId = useId().replace(/[:]/g, '');
   const filterId = `turbulent-displace-${rawId}`;
   const svgRef = useRef<SVGSVGElement | null>(null);
@@ -54,7 +64,9 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     }
 
     const baseDur = 6;
-    const dur = Math.max(0.001, baseDur / (speed || 1));
+    // На мобильных увеличиваем длительность для плавности
+    const speedMultiplier = isMobile ? 0.7 : 1;
+    const dur = Math.max(0.001, baseDur / ((speed || 1) * speedMultiplier));
     [...dyAnims, ...dxAnims].forEach(a => a.setAttribute('dur', `${dur}s`));
 
     const disp = svg.querySelector('feDisplacementMap');
@@ -81,17 +93,30 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
 
   useEffect(() => {
     updateAnim();
-  }, [speed, chaos]);
+  }, [speed, chaos, isMobile]);
 
   useLayoutEffect(() => {
     if (!rootRef.current) return;
 
-    const ro = new ResizeObserver(() => updateAnim());
+    // На мобильных используем throttling для ResizeObserver
+    let rafId: number | null = null;
+    const throttledUpdate = () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        updateAnim();
+        rafId = null;
+      });
+    };
+
+    const ro = new ResizeObserver(isMobile ? throttledUpdate : updateAnim);
     ro.observe(rootRef.current);
     updateAnim();
 
-    return () => ro.disconnect();
-  }, []);
+    return () => {
+      ro.disconnect();
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [isMobile]);
 
   const vars: CSSProperties = {
     ['--electric-border-color' as any]: color,

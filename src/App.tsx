@@ -99,8 +99,8 @@ function App() {
 
   return (
     <div className={`site ${isLoading ? "site--loading" : ""}`}>
-      {/* Lightning эффект - включаем после полной загрузки, на мобильных с меньшей интенсивностью */}
-      {isFullyLoaded && (
+      {/* Lightning эффект - отключаем на мобильных (WebGL ошибки) */}
+      {!isMobile && isFullyLoaded && (
         <Suspense fallback={null}>
           <div
             style={{
@@ -115,9 +115,9 @@ function App() {
           >
             <Lightning
               hue={0}
-              speed={isMobile ? 0.3 : 0.4}
-              intensity={isMobile ? 0.5 : 0.8}
-              size={isMobile ? 0.3 : 0.5}
+              speed={0.4}
+              intensity={0.8}
+              size={0.5}
               xOffset={-0.9}
             />
           </div>
