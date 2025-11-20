@@ -1,6 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
+import { Lightning } from "@appletosolutions/reactbits";
 
 import Home from "./pages/Home";
 import BottomNav from "./components/BottomNav";
@@ -11,13 +12,6 @@ const Process = lazy(() => import("./pages/Process"));
 const Styles = lazy(() => import("./pages/Styles"));
 const Feed = lazy(() => import("./pages/Feed"));
 const Booking = lazy(() => import("./pages/Booking"));
-
-// Lazy load Lightning только на десктопе
-const Lightning = lazy(() =>
-  import("@appletosolutions/reactbits").then((mod) => ({
-    default: mod.Lightning,
-  }))
-);
 
 function AppContent() {
   const location = useLocation();
@@ -101,27 +95,25 @@ function App() {
     <div className={`site ${isLoading ? "site--loading" : ""}`}>
       {/* Lightning эффект - отключаем на мобильных и до полной загрузки */}
       {!isMobile && isFullyLoaded && (
-        <Suspense fallback={null}>
-          <div
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              zIndex: 0,
-              pointerEvents: "none",
-            }}
-          >
-            <Lightning
-              hue={0}
-              speed={0.4}
-              intensity={0.8}
-              size={0.5}
-              xOffset={-0.9}
-            />
-          </div>
-        </Suspense>
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        >
+          <Lightning
+            hue={0}
+            speed={0.4}
+            intensity={0.8}
+            size={0.5}
+            xOffset={-0.9}
+          />
+        </div>
       )}
       {isLoading && (
         <div className="loader-overlay">
