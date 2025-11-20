@@ -14,17 +14,6 @@ export default defineConfig({
           }
           // НЕ разделяем React - оставляем в основном бандле для стабильности
           // React, React-DOM и React-Router должны быть вместе
-          // Остальные тяжелые библиотеки можно разделить
-          if (
-            id.includes("framer-motion") ||
-            id.includes("gsap") ||
-            id.includes("matter-js") ||
-            id.includes("ogl") ||
-            id.includes("gl-matrix") ||
-            id.includes("three")
-          ) {
-            return "vendor";
-          }
         },
       },
     },
@@ -32,20 +21,27 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: [
+      "@appletosolutions/reactbits",
+      "@use-gesture/react",
+    ],
+    exclude: [
+      // Исключаем неиспользуемые тяжелые библиотеки
+      "@chakra-ui/react",
+      "@emotion/react",
+      "@emotion/styled",
+      "@react-three/drei",
+      "@react-three/fiber",
+      "@react-three/postprocessing",
+      "@react-three/rapier",
+      "framer-motion",
       "gsap",
       "matter-js",
       "ogl",
       "gl-matrix",
+      "three",
       "three-stdlib",
-      "@motionone/types",
-      "postprocessing",
       "meshline",
-      "@chakra-ui/react",
-      "@emotion/react",
-      "@emotion/styled",
-      "@react-three/postprocessing",
-      "@react-three/rapier",
-      "@appletosolutions/reactbits",
+      "postprocessing",
     ],
   },
   define: {
