@@ -59,6 +59,19 @@
   border: var(--eb-border-width) solid var(--electric-border-color);
 }
 
+/* Мобильная версия - простая граница без анимаций для производительности */
+.electric-border--mobile .eb-stroke {
+  border: var(--eb-border-width) solid var(--electric-border-color);
+  filter: none !important;
+  animation: none !important;
+}
+
+.electric-border--mobile .eb-glow-1,
+.electric-border--mobile .eb-glow-2,
+.electric-border--mobile .eb-background-glow {
+  display: none;
+}
+
 .eb-glow-1 {
   border: var(--eb-border-width) solid oklch(from var(--electric-border-color) l c h / 0.6);
   opacity: 0.5;

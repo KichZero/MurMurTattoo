@@ -1,7 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import gothicLogo from "../assets/60218315_2195312547253914_5590963038934007808_n.jpg";
-import { CircularText } from "@appletosolutions/reactbits";
 import ElectricBorder from "../components/ElectricBorder";
+
+// Lazy load CircularText только на десктопе
+const CircularText = lazy(() =>
+  import("@appletosolutions/reactbits").then((mod) => ({
+    default: mod.CircularText,
+  }))
+);
 
 const stats = [
   { label: "Опыт работы", value: "7+" },
@@ -72,12 +78,14 @@ export default function Home() {
                     MUR MUR 13 · TATTOO STUDIO
                   </h1>
                 ) : (
-                  <CircularText
-                    text="MUR MUR 13 · TATTOO STUDIO · "
-                    spinDuration={15}
-                    onHover="slowDown"
-                    className="circular-text-gothic"
-                  />
+                  <Suspense fallback={<h1 className="circular-text-mobile">MUR MUR 13 · TATTOO STUDIO</h1>}>
+                    <CircularText
+                      text="MUR MUR 13 · TATTOO STUDIO · "
+                      spinDuration={15}
+                      onHover="slowDown"
+                      className="circular-text-gothic"
+                    />
+                  </Suspense>
                 )}
               </div>
             </div>
