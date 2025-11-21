@@ -52,25 +52,35 @@
 
 .circular-text-neon {
   fill: #FF0C04;
-  filter: drop-shadow(0 0 10px #FF0C04) drop-shadow(0 0 15px #FF0C04) drop-shadow(0 0 20px rgba(255, 12, 4, 0.9));
-  animation: neonBlink 1.5s ease-in-out infinite;
-  /* Улучшенное свечение для всех устройств */
-  text-shadow: 0 0 10px #FF0C04, 0 0 20px #FF0C04, 0 0 30px #FF0C04;
+  filter: drop-shadow(0 0 8px #FF0C04) drop-shadow(0 0 12px #FF0C04) drop-shadow(0 0 16px rgba(255, 12, 4, 0.8));
+  animation: neonBlink 2s ease-in-out infinite;
 }
 
 @keyframes neonBlink {
   0%, 100% {
     opacity: 1;
-    filter: drop-shadow(0 0 10px #FF0C04) drop-shadow(0 0 15px #FF0C04) drop-shadow(0 0 20px rgba(255, 12, 4, 0.9));
+    filter: drop-shadow(0 0 8px #FF0C04) drop-shadow(0 0 12px #FF0C04) drop-shadow(0 0 16px rgba(255, 12, 4, 0.8));
   }
   50% {
-    opacity: 0.7;
-    filter: drop-shadow(0 0 5px #FF0C04) drop-shadow(0 0 8px #FF0C04) drop-shadow(0 0 12px rgba(255, 12, 4, 0.6));
+    opacity: 0.85;
+    filter: drop-shadow(0 0 6px #FF0C04) drop-shadow(0 0 10px #FF0C04) drop-shadow(0 0 14px rgba(255, 12, 4, 0.7));
   }
 }
 
 .circular-icon {
-  filter: drop-shadow(0 0 4px #088BBE);
+  filter: drop-shadow(0 0 6px #088BBE) drop-shadow(0 0 10px rgba(8, 139, 190, 0.8));
+  animation: iconNeon 2.5s ease-in-out infinite;
+}
+
+@keyframes iconNeon {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #088BBE) drop-shadow(0 0 10px rgba(8, 139, 190, 0.8));
+  }
+  50% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 5px #088BBE) drop-shadow(0 0 8px rgba(8, 139, 190, 0.7));
+  }
 }
 
 .circular-icon-wrapper {
@@ -83,32 +93,5 @@
     min-height: 320px;
   }
 
-  /* Усиленное свечение неона на мобильных */
-  .circular-text-neon {
-    filter: 
-      drop-shadow(0 0 8px #FF0C04) 
-      drop-shadow(0 0 12px #FF0C04) 
-      drop-shadow(0 0 18px #FF0C04)
-      drop-shadow(0 0 24px rgba(255, 12, 4, 0.8));
-    animation: neonBlinkMobile 1.5s ease-in-out infinite;
-  }
-
-  @keyframes neonBlinkMobile {
-    0%, 100% {
-      opacity: 1;
-      filter: 
-        drop-shadow(0 0 8px #FF0C04) 
-        drop-shadow(0 0 12px #FF0C04) 
-        drop-shadow(0 0 18px #FF0C04)
-        drop-shadow(0 0 24px rgba(255, 12, 4, 0.8));
-    }
-    50% {
-      opacity: 0.75;
-      filter: 
-        drop-shadow(0 0 6px #FF0C04) 
-        drop-shadow(0 0 10px #FF0C04) 
-        drop-shadow(0 0 14px rgba(255, 12, 4, 0.7));
-    }
-  }
 }
 

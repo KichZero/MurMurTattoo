@@ -144,7 +144,7 @@ export default function Styles() {
         {galleryImages.length > 0 ? (
           isMobile ? (
             <div className="styles-grid-mobile">
-              {galleryImages.slice(0, 12).map((item, index) => (
+              {galleryImages.map((item, index) => (
                 <div
                   key={index}
                   className="style-card-mobile"
