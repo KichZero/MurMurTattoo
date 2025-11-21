@@ -1,3 +1,4 @@
+/* Font loading optimized - используем font-display: swap для быстрого отображения */
 @import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
 
 @tailwind base;

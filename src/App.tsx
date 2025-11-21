@@ -2,28 +2,22 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 
-// Lazy load Lightning только на десктопе
-const Lightning = lazy(() =>
-  import("@appletosolutions/reactbits").then((mod) => ({
-    default: mod.Lightning,
-  }))
-);
-
 import Home from "./pages/Home";
 import BottomNav from "./components/BottomNav";
+import { cachedLazy } from "./utils/cache";
 
-// Lazy load всех страниц кроме Home для уменьшения начального бандла
-const Benefits = lazy(() => import("./pages/Benefits"));
-const Process = lazy(() => import("./pages/Process"));
-const Styles = lazy(() => import("./pages/Styles"));
-const Feed = lazy(() => import("./pages/Feed"));
-const Booking = lazy(() => import("./pages/Booking"));
+// Lazy load всех страниц кроме Home с кэшированием для быстрой работы
+const Benefits = lazy(cachedLazy(() => import("./pages/Benefits"), "Benefits"));
+const Process = lazy(cachedLazy(() => import("./pages/Process"), "Process"));
+const Styles = lazy(cachedLazy(() => import("./pages/Styles"), "Styles"));
+const Feed = lazy(cachedLazy(() => import("./pages/Feed"), "Feed"));
+const Booking = lazy(cachedLazy(() => import("./pages/Booking"), "Booking"));
 
 function AppContent() {
   const location = useLocation();
 
   return (
-    <div className={`page-transition`} key={location.pathname}>
+    <div>
       <Suspense
         fallback={
           <div
@@ -33,9 +27,24 @@ function AppContent() {
               alignItems: "center",
               minHeight: "50vh",
               color: "white",
+              opacity: 0.8,
             }}
+            aria-label="Загрузка страницы"
           >
-            Загрузка...
+            <div style={{ textAlign: "center" }}>
+              <div
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  border: "3px solid rgba(255,255,255,0.1)",
+                  borderTopColor: "#367faf",
+                  borderRadius: "50%",
+                  animation: "spin 0.8s linear infinite",
+                  margin: "0 auto 1rem",
+                }}
+              />
+              <p style={{ fontSize: "0.9rem", margin: 0 }}>Загрузка...</p>
+            </div>
           </div>
         }
       >
@@ -55,74 +64,50 @@ function AppContent() {
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showCookies, setShowCookies] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isFullyLoaded, setIsFullyLoaded] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+    // Wait for DOM to be ready, no need to wait for all resources
+    const handleReady = () => {
+      // Убрали задержку - показываем контент сразу как DOM готов
+      setIsLoading(false);
     };
 
-    checkMobile();
-    const resizeHandler = () => checkMobile();
-    window.addEventListener("resize", resizeHandler);
-
-    // Wait for all resources to load
-    const handleLoad = () => {
-      // Small delay to ensure everything is rendered
-      setTimeout(() => {
-        setIsFullyLoaded(true);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 300);
-      }, 100);
-    };
-
-    if (document.readyState === "complete") {
-      handleLoad();
+    // Используем DOMContentLoaded вместо load для более быстрого отображения
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "interactive"
+    ) {
+      // Используем requestAnimationFrame для синхронизации с браузером
+      requestAnimationFrame(() => {
+        requestAnimationFrame(handleReady);
+      });
     } else {
-      window.addEventListener("load", handleLoad);
+      const handler = () => {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(handleReady);
+        });
+      };
+      document.addEventListener("DOMContentLoaded", handler, { once: true });
+      return () => {
+        document.removeEventListener("DOMContentLoaded", handler);
+      };
     }
 
+    // Показываем cookies после загрузки основного контента
     if (
       typeof window !== "undefined" &&
       !localStorage.getItem("murmur-cookie-ok")
     ) {
-      setTimeout(() => setShowCookies(true), 2000);
+      // Уменьшили задержку для быстрого отображения
+      const cookieTimer = setTimeout(() => setShowCookies(true), 1000);
+      return () => {
+        clearTimeout(cookieTimer);
+      };
     }
-
-    return () => {
-      window.removeEventListener("resize", resizeHandler);
-      window.removeEventListener("load", handleLoad);
-    };
   }, []);
 
   return (
     <div className={`site ${isLoading ? "site--loading" : ""}`}>
-      {/* Lightning эффект - отключаем на мобильных (WebGL ошибки) */}
-      {!isMobile && isFullyLoaded && (
-        <Suspense fallback={null}>
-          <div
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              zIndex: 0,
-              pointerEvents: "none",
-            }}
-          >
-            <Lightning
-              hue={0}
-              speed={0.4}
-              intensity={0.8}
-              size={0.5}
-              xOffset={-0.9}
-            />
-          </div>
-        </Suspense>
-      )}
       {isLoading && (
         <div className="loader-overlay">
           <div className="loader-spinner" />
@@ -161,6 +146,7 @@ function App() {
         </div>
       </footer>
 
+      {/* Навигация вне AppContent чтобы гарантировать fixed позиционирование */}
       <BottomNav />
     </div>
   );

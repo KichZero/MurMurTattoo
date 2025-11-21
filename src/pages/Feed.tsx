@@ -1,4 +1,3 @@
-import ElectricBorder from '../components/ElectricBorder'
 
 export default function Feed() {
   return (
@@ -13,13 +12,7 @@ export default function Feed() {
             Посмотри примеры наших работ в Instagram. Мы делаем татуировки в разных стилях: от минимализма до реализма, от классики до современного искусства. Каждая работа уникальна и создаётся специально для клиента.
           </p>
         </div>
-        <ElectricBorder
-          className="instagram-frame scale-in"
-          color="#b30000"
-          speed={1}
-          chaos={0.5}
-          thickness={2}
-        >
+        <div className="instagram-frame scale-in">
           <iframe
             src="https://www.instagram.com/murmur13tattoo/embed"
             title="Instagram Mur Mur 13"
@@ -35,7 +28,7 @@ export default function Feed() {
           >
             Открыть профиль в Instagram →
           </a>
-        </ElectricBorder>
+        </div>
       </div>
     </section>
   )

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import gothicLogo from "../assets/60218315_2195312547253914_5590963038934007808_n.jpg";
-import ElectricBorder from "../components/ElectricBorder";
+import { useEffect, useState, useMemo, useCallback } from "react";
+import logo from "../assets/logo.png";
 import CircularText from "../components/CircularText";
+import { prefetchRoutes } from "../utils/prefetchRoutes";
 
-const stats = [
+const STATS = [
   { label: "Опыт работы", value: "7+" },
   { label: "Ожидание ответа", value: "24часа" },
   {
@@ -14,20 +14,39 @@ const stats = [
 ];
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
+  // Ленивая инициализация для определения мобильного устройства
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth <= 768;
+    }
+    return false;
+  });
+
+  const checkMobile = useCallback(() => {
+    setIsMobile(window.innerWidth <= 768);
+  }, []);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkMobile();
     window.addEventListener("resize", checkMobile);
+    // Prefetch другие маршруты для быстрой навигации
+    prefetchRoutes();
 
     return () => {
       window.removeEventListener("resize", checkMobile);
     };
-  }, []);
+  }, [checkMobile]);
+
+  const stats = useMemo(() => STATS, []);
+
+  const logoStyle = useMemo(
+    () => ({
+      width: isMobile ? "170px" : "220px",
+      height: isMobile ? "170px" : "220px",
+      borderRadius: "50%",
+      objectFit: "cover" as const,
+    }),
+    [isMobile]
+  );
 
   return (
     <header className="hero" id="hero">
@@ -40,17 +59,26 @@ export default function Home() {
                 display: "flex",
                 justifyContent: "center",
                 marginBottom: "1.5rem",
+                marginTop: "2rem",
               }}
             >
               <div className="circular-text-wrapper">
                 <CircularText
-                  text="MUR MUR 13 · TATTOO STUDIO · "
-                  spinDuration={isMobile ? 20 : 15}
-                  radius={isMobile ? 60 : 80}
-                  fontSize={isMobile ? 12 : 14}
-                  color="#367faf"
-                  className="circular-text-gothic"
-                />
+                  topText="• TATTOO •"
+                  bottomText="• STUDIO •"
+                  radius={isMobile ? 100 : 115}
+                  fontSize={isMobile ? 32 : 46}
+                  textDy={isMobile ? "0.35em" : "0.35em"}
+                >
+                  <img
+                    src={logo}
+                    alt="Mur Mur 13 Tattoo Studio"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                    style={logoStyle}
+                  />
+                </CircularText>
               </div>
             </div>
             <p className="hero-description slide-up-delay-2">
@@ -93,23 +121,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="hero-image scale-in">
-            <ElectricBorder
-              className="image-frame"
-              color="#b30000"
-              speed={1}
-              chaos={0.5}
-              thickness={2}
-            >
-              <img
-                src={gothicLogo}
-                alt="Mur Mur 13 Tattoo Studio"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-              />
-            </ElectricBorder>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useMemo, useCallback } from 'react'
 
 interface NavItem {
   path: string
@@ -9,19 +9,7 @@ interface NavItem {
   viewBox?: string
 }
 
-export default function BottomNav() {
-  const location = useLocation()
-  const navRef = useRef<HTMLElement>(null)
-  const pillRef = useRef<HTMLDivElement>(null)
-
-  const isActive = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/'
-    }
-    return location.pathname.startsWith(path)
-  }
-
-  const navItems: NavItem[] = [
+const NAV_ITEMS: NavItem[] = [
     { 
       path: '/', 
       label: 'Главная', 
@@ -57,6 +45,20 @@ export default function BottomNav() {
       isStroke: true
     },
   ]
+
+export default function BottomNav() {
+  const location = useLocation()
+  const navRef = useRef<HTMLElement>(null)
+  const pillRef = useRef<HTMLDivElement>(null)
+
+  const isActive = useCallback((path: string) => {
+    if (path === '/') {
+      return location.pathname === '/'
+    }
+    return location.pathname.startsWith(path)
+  }, [location.pathname])
+
+  const navItems = useMemo(() => NAV_ITEMS, [])
 
   useEffect(() => {
     if (!navRef.current || !pillRef.current) return
@@ -112,14 +114,15 @@ export default function BottomNav() {
         >
           <span className="nav-item-icon">
             <svg 
-              width="20" 
-              height="20" 
+              width="22" 
+              height="22" 
               viewBox={item.viewBox || "0 0 24 24"}
               fill={item.isStroke ? "none" : "currentColor"}
-              stroke={item.isStroke ? "currentColor" : "none"}
-              strokeWidth={item.isStroke ? "2" : "0"}
-              strokeLinecap={item.isStroke ? "round" : undefined}
-              strokeLinejoin={item.isStroke ? "round" : undefined}
+              stroke={item.isStroke ? "currentColor" : item.path !== '/feed' ? "rgba(0, 0, 0, 0.3)" : "none"}
+              strokeWidth={item.isStroke ? "2" : item.path !== '/feed' ? "0.5" : "0"}
+              strokeLinecap={item.isStroke ? "round" : "round"}
+              strokeLinejoin={item.isStroke ? "round" : "round"}
+              className="nav-icon-svg"
             >
               <path d={item.icon} />
               {item.path === '/feed' && (
