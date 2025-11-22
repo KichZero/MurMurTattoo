@@ -69,7 +69,10 @@ export default function CircularText({
   children,
 }: CircularTextProps) {
   const { size, circleId, circlePath, iconPositions } = useMemo(() => {
-    const s = (radius + fontSize) * 2 + 120; // Дополнительное место для иконок
+    // Уменьшаем размер SVG - меньше отступ для иконок
+    const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+    const extraSpace = isMobile ? 60 : 80; // Меньше места для иконок
+    const s = (radius + fontSize) * 2 + extraSpace;
     const c = s / 2;
 
     // Правильный путь для полной окружности
@@ -85,9 +88,9 @@ export default function CircularText({
       );
 
     // Иконки на круге: мышка слева (180°), кошка справа (0°/360°)
-    const batIconSize = 50; // Мышь больше
-    const catIconSize = 42; // Кот меньше
-    const iconOffset = 30; // Отступ от текста (уменьшен для более близкого расположения)
+    const batIconSize = isMobile ? 35 : 42; // Уменьшаем иконки
+    const catIconSize = isMobile ? 30 : 36;
+    const iconOffset = isMobile ? 20 : 25; // Меньше отступ от текста
 
     return {
       size: s,

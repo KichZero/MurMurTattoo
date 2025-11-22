@@ -8,8 +8,8 @@ const STATS = [
   { label: "Ожидание ответа", value: "24часа" },
   {
     label: "Где мы",
-    value: "Strada Petru Zadnipru 18",
-    link: "https://www.google.com/maps/place/Strada+Petru+Zadnipru+18,+MD-2044,+Chi%C8%99in%C4%83u,+%D0%9C%D0%BE%D0%BB%D0%B4%D0%BE%D0%B2%D0%B0/@47.0419005,28.8963663,21z/data=!4m6!3m5!1s0x40c97c8fbd529b97:0xab82d17b03607a6f!8m2!3d47.0418778!4d28.8963074!16s%2Fg%2F11l5b4tjt8?entry=ttu",
+    value: "Strada Petru Zadnipru 18/4",
+    link: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3090.591641709716!2d28.894330076561022!3d47.04276212674277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c8fc3fa54f3%3A0x35db3bebaba30860!2zNCwgU3RyYWRhIFBldHJ1IFphZG5pcHJ1IDE4LCBNRC0yMDQ0LCBDaGnImWluxIN1LCDQnNC-0LvQtNC-0LLQsA!5e1!3m2!1sru!2s!4v1763831166116!5m2!1sru!2s",
   },
 ];
 
@@ -40,8 +40,8 @@ export default function Home() {
 
   const logoStyle = useMemo(
     () => ({
-      width: isMobile ? "170px" : "220px",
-      height: isMobile ? "170px" : "220px",
+      width: isMobile ? "100px" : "180px",
+      height: isMobile ? "100px" : "180px",
       borderRadius: "50%",
       objectFit: "cover" as const,
     }),
@@ -58,16 +58,14 @@ export default function Home() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginBottom: "1.5rem",
-                marginTop: "2rem",
               }}
             >
               <div className="circular-text-wrapper">
                 <CircularText
                   topText="• TATTOO •"
                   bottomText="• STUDIO •"
-                  radius={isMobile ? 100 : 115}
-                  fontSize={isMobile ? 32 : 46}
+                  radius={isMobile ? 60 : 95}
+                  fontSize={isMobile ? 20 : 38}
                   textDy={isMobile ? "0.35em" : "0.35em"}
                 >
                   <img
@@ -94,7 +92,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span>Связаться в Telegram</span>
+                <span>Telegram</span>
               </a>
               <a className="btn btn-secondary" href="/booking">
                 <span>Записаться</span>

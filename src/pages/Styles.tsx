@@ -114,7 +114,6 @@ export default function Styles() {
           <p className="section-tag section-tag-blue slide-up">
             Стили татуировок
           </p>
-          <h2 className="slide-up-delay-1">Какие тату мы делаем</h2>
         </div>
         <div
           className="fade-in-delay-2"
@@ -127,15 +126,14 @@ export default function Styles() {
           <p
             style={{
               color: "rgba(255, 255, 255, 0.9)",
-              fontSize: "1rem",
+              fontSize: "0.8rem",
               lineHeight: "1.7",
               margin: 0,
             }}
           >
-            Мы работаем в более чем 90 стилях татуировок. От классических Old
-            School и Realism до современных Watercolor и Cyber Sigilism. Каждый
-            стиль имеет свои особенности, и мы поможем выбрать идеальный вариант
-            для тебя.
+            Ознакомьтесь с различными стилями татуировок. Представленные
+            изображения служат визуальными примерами для понимания особенностей
+            каждого стиля и не являются работами мастера.
           </p>
         </div>
       </div>

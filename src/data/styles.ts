@@ -71,17 +71,6 @@ export const styleCategories = [
         ],
       },
       {
-        id: "tribal",
-        name: "Tribal",
-        description:
-          "Традиционные племенные орнаменты. Абстрактные формы, чёрные заливки, симметричные узоры. Сильная связь с культурным наследием.",
-        images: [
-          "https://i.pinimg.com/736x/b3/79/ee/b379ee401ce374db05cd485b252ded8a.jpg",
-          "https://i.pinimg.com/736x/72/4c/ae/724cae60bc7e46da94504610280458cf.jpg",
-          "https://i.pinimg.com/1200x/d1/2e/f4/d12ef4eb25703c427e7f6e5e5c099a84.jpg",
-        ],
-      },
-      {
         id: "realism",
         name: "Realism (Realistic)",
         description:
@@ -232,16 +221,6 @@ export const styleCategories = [
         images: [
           "https://i.pinimg.com/1200x/df/71/b4/df71b4fc8cfc2f503441ee84787552b3.jpg",
           "https://i.pinimg.com/736x/02/d1/30/02d1309f50a60bd3eebc3b0391b55fb6.jpg",
-        ],
-      },
-      {
-        id: "polynesian",
-        name: "Polynesian",
-        description:
-          "Традиционные полинезийские узоры. Сложные орнаменты, спирали, геометрические формы. Глубокий культурный смысл и символика.",
-        images: [
-          "https://i.pinimg.com/736x/8f/93/03/8f93035bfc61fdc77f364464ae2c825c.jpg",
-          "https://i.pinimg.com/736x/e0/ed/e8/e0ede832aaea9ade8eb0a8fa96e3d34c.jpg",
         ],
       },
       {
