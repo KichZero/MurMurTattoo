@@ -1,0 +1,195 @@
+.language-switcher {
+  position: relative;
+  z-index: 1000;
+}
+
+.language-switcher-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0;
+  width: auto;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+.language-switcher-button:hover .language-circle {
+  transform: scale(1.05);
+  background: linear-gradient(
+    135deg,
+    rgba(54, 127, 175, 0.3),
+    rgba(54, 127, 175, 0.2)
+  );
+  border-color: rgba(54, 127, 175, 0.7);
+  box-shadow: 0 4px 16px rgba(54, 127, 175, 0.3),
+    0 0 0 2px rgba(54, 127, 175, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #5ab3e8;
+}
+
+.language-switcher-button:active .language-circle {
+  transform: scale(0.98);
+}
+
+.language-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(54, 127, 175, 0.2),
+    rgba(54, 127, 175, 0.1)
+  );
+  border: 2px solid rgba(54, 127, 175, 0.5);
+  color: #4a9fd4;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(54, 127, 175, 0.2),
+    0 0 0 0 rgba(54, 127, 175, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.language-circle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(54, 127, 175, 0.3), transparent);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.language-switcher-button:hover .language-circle::before {
+  width: 100%;
+  height: 100%;
+}
+
+.language-arrow {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(54, 127, 175, 0.7);
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  margin-left: 0.25rem;
+}
+
+.language-arrow.open {
+  transform: rotate(180deg);
+  color: rgba(54, 127, 175, 1);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  min-width: auto;
+  width: auto;
+  align-items: flex-start;
+  background: transparent;
+  border: none;
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+  z-index: 10;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  opacity: 0;
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.language-option:active {
+  transform: scale(0.9);
+}
+
+.language-option .language-circle {
+  width: 44px;
+  height: 44px;
+  font-size: 0.8rem;
+}
+
+.language-option:hover .language-circle {
+  background: linear-gradient(
+    135deg,
+    rgba(54, 127, 175, 0.3),
+    rgba(54, 127, 175, 0.2)
+  );
+  border-color: rgba(54, 127, 175, 0.7);
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(54, 127, 175, 0.3),
+    0 0 0 2px rgba(54, 127, 175, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #5ab3e8;
+}
+
+/* Позиционирование для мобильных */
+@media (max-width: 768px) {
+  .language-switcher-button {
+    height: 40px;
+    gap: 0.4rem;
+  }
+
+  .language-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 0.75rem;
+  }
+
+  .language-option {
+    width: 40px;
+    height: 40px;
+  }
+
+  .language-option .language-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 0.75rem;
+  }
+
+  .language-arrow {
+    width: 9px;
+    height: 9px;
+  }
+}

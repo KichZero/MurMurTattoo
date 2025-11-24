@@ -1,54 +1,37 @@
-const processSteps = [
-  {
-    label: 'КОНСУЛЬТАЦИЯ И ПОДГОТОВКА',
-    items: [
-      'Напиши нам в Telegram или Instagram',
-      'Покажи картинки, идеи или эскизы что нравятся',
-      'Обсудим стиль, размер, расположение и детали',
-      'Создадим 3D-визуализацию будущей татуировки',
-      'Согласуем финальный эскиз и цену',
-      'Запишем на удобное для тебя время'
-    ],
-  },
-  {
-    label: 'ПРОЦЕСС НАНЕСЕНИЯ',
-    items: [
-      'Приятная и расслабляющая атмосфера в студии',
-      'Всё стерильно, чисто и безопасно (одноразовые иглы, перчатки)',
-      'Включаем музыку которую ты любишь или тишину',
-      'Можешь смотреть сериал, читать или просто отдыхать',
-      'Делаем перерывы когда нужно',
-      'Постоянно проверяем твоё самочувствие'
-    ],
-  },
-  {
-    label: 'УХОД И ПОДДЕРЖКА',
-    items: [
-      'Сделаем профессиональные фото готовой работы',
-      'Дам подробную инструкцию по уходу',
-      'Выдадим все необходимые средства для заживления',
-      'Проверим как заживает через 1 неделю (онлайн)',
-      'Проверим результат через 4 недели (в студии)',
-      'Бесплатная коррекция при необходимости (в течение месяца)'
-    ],
-  },
-]
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Process() {
+  const { t } = useLanguage();
+
+  const processSteps = [
+    {
+      label: t("process.steps.consultation.label"),
+      items: t("process.steps.consultation.items") as string[],
+    },
+    {
+      label: t("process.steps.process.label"),
+      items: t("process.steps.process.items") as string[],
+    },
+    {
+      label: t("process.steps.aftercare.label"),
+      items: t("process.steps.aftercare.items") as string[],
+    },
+  ];
+
   return (
     <section className="process" id="process">
       <div className="container">
         <div className="section-header fade-in">
-          <p className="section-tag slide-up">Как мы работаем</p>
-          <h2 className="slide-up-delay-1">Что будет происходить</h2>
+          <p className="section-tag slide-up">{t("process.tag")}</p>
+          <h2 className="slide-up-delay-1">{t("process.title")}</h2>
         </div>
         <div className="process-grid">
           {processSteps.map((step) => (
             <article key={step.label} className="process-card">
               <h3>{step.label}</h3>
               <ul>
-                {step.items.map((item) => (
-                  <li key={item}>{item}</li>
+                {step.items.map((item, index) => (
+                  <li key={index}>{item}</li>
                 ))}
               </ul>
             </article>
@@ -56,5 +39,5 @@ export default function Process() {
         </div>
       </div>
     </section>
-  )
+  );
 }

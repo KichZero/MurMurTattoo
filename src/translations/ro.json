@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "benefits": "Avantaje",
+    "styles": "Stiluri",
+    "works": "Lucrări",
+    "booking": "Programare"
+  },
+  "home": {
+    "description": "Studio profesional de tatuaje în Chișinău. Facem tatuaje de calitate și onest. Spunem prețul imediat, creăm vizualizare 3D înainte de început, ajutăm cu îngrijirea după. Abordare individuală pentru fiecare client.",
+    "telegram": "Telegram",
+    "book": "Programează-te",
+    "stats": {
+      "experience": "Experiență",
+      "response": "Timp de răspuns",
+      "location": "Unde suntem"
+    }
+  },
+  "benefits": {
+    "tag": "Avantajele noastre",
+    "title": "De ce ne alegi",
+    "items": {
+      "individual": {
+        "title": "Abordare individuală",
+        "text": "În fiecare zi lucrăm doar cu o singură persoană. Nu mai e nimeni, doar tu și maestrul. Concentrare completă pe tatuajul tău, fără grabă și distrageri. Atmosferă confortabilă pentru crearea unei lucrări perfecte."
+      },
+      "visualization": {
+        "title": "Vizualizare înainte de început",
+        "text": "Facem vizualizare 3D și îți arătăm cum va arăta tatuajul pe corpul tău. Poți schimba ceva, ajusta dimensiunea, culoarea sau poziționarea înainte de începerea lucrului. Fără surprize."
+      },
+      "pricing": {
+        "title": "Prețuri transparente",
+        "text": "Spunem prețul exact în euro (€) înainte de începerea lucrului. Fără plăți ascunse, suplimente sau surprize. Totul onest și transparent."
+      }
+    }
+  },
+  "process": {
+    "tag": "Cum lucrăm",
+    "title": "Ce va avea loc",
+    "steps": {
+      "consultation": {
+        "label": "CONSULTARE ȘI PREGĂTIRE",
+        "items": [
+          "Scrie-ne pe Telegram sau Instagram",
+          "Arată-ne imagini, idei sau schițe care îți plac",
+          "Discutăm stilul, dimensiunea, poziționarea și detaliile",
+          "Creăm vizualizare 3D a viitorului tatuaj",
+          "Aprobăm schița finală și prețul",
+          "Programăm pentru un moment convenabil pentru tine"
+        ]
+      },
+      "process": {
+        "label": "PROCESUL DE APLICARE",
+        "items": [
+          "Atmosferă plăcută și relaxantă în studio",
+          "Totul este steril, curat și sigur (ace de unică folosință, mănuși)",
+          "Pornim muzica pe care o iubești sau liniște",
+          "Poți urmări seriale, citi sau pur și simplu te relaxezi",
+          "Facem pauze când este nevoie",
+          "Verificăm constant starea ta"
+        ]
+      },
+      "aftercare": {
+        "label": "ÎNGRIJIRE ȘI SUPORT",
+        "items": [
+          "Facem fotografii profesionale ale lucrării gata",
+          "Îți dau instrucțiuni detaliate pentru îngrijire",
+          "Îți oferim toate produsele necesare pentru vindecare",
+          "Verificăm cum se vindecă după 1 săptămână (online)",
+          "Verificăm rezultatul după 4 săptămâni (în studio)",
+          "Corecție gratuită dacă este necesar (în decurs de o lună)"
+        ]
+      }
+    }
+  },
+  "styles": {
+    "tag": "Stiluri de tatuaje",
+    "description": "Familiarizează-te cu diferite stiluri de tatuaje. Imaginile prezentate servesc ca exemple vizuale pentru înțelegerea caracteristicilor fiecărui stil și nu sunt lucrări ale maestrului.",
+    "categories": {
+      "classic": "Stiluri clasice principale",
+      "monochrome": "Stiluri monocrome (Lucrare neagră)"
+    }
+  },
+  "feed": {
+    "tag": "Portofoliu",
+    "title": "Lucrările noastre",
+    "description": "Vezi exemple ale lucrărilor noastre pe Instagram. Facem tatuaje în diferite stiluri: de la minimalism la realism, de la clasic la artă modernă. Fiecare lucrare este unică și este creată special pentru client.",
+    "openProfile": "Deschide profilul pe Instagram →"
+  },
+  "booking": {
+    "tag": "Programare pentru consultare",
+    "title": "Contactează-ne",
+    "description": "Scrie-ne direct pe Telegram, Viber, WhatsApp sau Instagram. Răspundem în 24 de ore și discutăm toate detaliile viitorului tău tatuaj.",
+    "location": "Unde ne găsești",
+    "openMap": "Deschide în Google Maps →"
+  }
+}
+

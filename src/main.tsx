@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.tsx";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import "./utils/cache"; // Инициализируем кэш при старте приложения
 
 // Убрали предзагрузку reactbits - загружается по требованию
@@ -78,7 +79,9 @@ if (typeof window !== "undefined") {
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
     </BrowserRouter>
   </StrictMode>
 );

@@ -4,6 +4,7 @@ import "./App.css";
 
 import Home from "./pages/Home";
 import BottomNav from "./components/BottomNav";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 import { cachedLazy } from "./utils/cache";
 
 // Lazy load всех страниц кроме Home с кэшированием для быстрой работы
@@ -138,6 +139,11 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Переключатель языков */}
+      <div className="language-switcher-container">
+        <LanguageSwitcher />
+      </div>
 
       <AppContent />
 

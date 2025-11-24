@@ -1,8 +1,10 @@
 import { useMemo, useState, useEffect } from "react";
 import { styleCategories } from "../data/styles";
 import SimpleGallery from "../components/SimpleGallery";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Styles() {
+  const { t } = useLanguage();
   const [selectedStyle, setSelectedStyle] = useState<{
     images: string[];
     title: string;
@@ -112,7 +114,7 @@ export default function Styles() {
       <div className="container">
         <div className="section-header fade-in">
           <p className="section-tag section-tag-blue slide-up">
-            Стили татуировок
+            {t("styles.tag")}
           </p>
         </div>
         <div
@@ -131,9 +133,7 @@ export default function Styles() {
               margin: 0,
             }}
           >
-            Ознакомьтесь с различными стилями татуировок. Представленные
-            изображения служат визуальными примерами для понимания особенностей
-            каждого стиля и не являются работами мастера.
+            {t("styles.description")}
           </p>
         </div>
       </div>

@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Home",
+    "benefits": "Benefits",
+    "styles": "Styles",
+    "works": "Works",
+    "booking": "Booking"
+  },
+  "home": {
+    "description": "Professional tattoo studio in Chișinău. We make quality and honest tattoos. We'll tell you the price right away, create a 3D visualization before starting, help with aftercare. Individual approach to each client.",
+    "telegram": "Telegram",
+    "book": "Book Appointment",
+    "stats": {
+      "experience": "Experience",
+      "response": "Response time",
+      "location": "Where we are"
+    }
+  },
+  "benefits": {
+    "tag": "Our advantages",
+    "title": "Why choose us",
+    "items": {
+      "individual": {
+        "title": "Individual approach",
+        "text": "We work with only one person per day. No one else, just you and the master. Full concentration on your tattoo, without rush and distractions. Comfortable atmosphere for creating the perfect work."
+      },
+      "visualization": {
+        "title": "Visualization before starting",
+        "text": "We'll create a 3D visualization and show you how the tattoo will look on your body. You can change something, adjust the size, color or placement before starting work. No surprises."
+      },
+      "pricing": {
+        "title": "Transparent pricing",
+        "text": "We'll tell you the exact price in euros (€) before starting work. No hidden fees, surcharges or surprises. Everything is honest and transparent."
+      }
+    }
+  },
+  "process": {
+    "tag": "How we work",
+    "title": "What will happen",
+    "steps": {
+      "consultation": {
+        "label": "CONSULTATION AND PREPARATION",
+        "items": [
+          "Write to us on Telegram or Instagram",
+          "Show us pictures, ideas or sketches you like",
+          "We'll discuss style, size, placement and details",
+          "We'll create a 3D visualization of the future tattoo",
+          "We'll approve the final sketch and price",
+          "We'll schedule for a time convenient for you"
+        ]
+      },
+      "process": {
+        "label": "APPLICATION PROCESS",
+        "items": [
+          "Pleasant and relaxing atmosphere in the studio",
+          "Everything is sterile, clean and safe (disposable needles, gloves)",
+          "We'll play music you love or silence",
+          "You can watch series, read or just relax",
+          "We take breaks when needed",
+          "We constantly check your well-being"
+        ]
+      },
+      "aftercare": {
+        "label": "AFTERCARE AND SUPPORT",
+        "items": [
+          "We'll take professional photos of the finished work",
+          "I'll give you detailed aftercare instructions",
+          "We'll provide all necessary healing products",
+          "We'll check how it's healing after 1 week (online)",
+          "We'll check the result after 4 weeks (in studio)",
+          "Free correction if needed (within a month)"
+        ]
+      }
+    }
+  },
+  "styles": {
+    "tag": "Tattoo styles",
+    "description": "Familiarize yourself with different tattoo styles. The images presented serve as visual examples for understanding the characteristics of each style and are not the master's works.",
+    "categories": {
+      "classic": "Main classic styles",
+      "monochrome": "Monochrome styles (Black work)"
+    }
+  },
+  "feed": {
+    "tag": "Portfolio",
+    "title": "Our works",
+    "description": "See examples of our works on Instagram. We make tattoos in different styles: from minimalism to realism, from classic to modern art. Each work is unique and created specifically for the client.",
+    "openProfile": "Open profile on Instagram →"
+  },
+  "booking": {
+    "tag": "Book a consultation",
+    "title": "Contact us",
+    "description": "Write to us directly on Telegram, Viber, WhatsApp or Instagram. We'll respond within 24 hours and discuss all the details of your future tattoo.",
+    "location": "Where we are located",
+    "openMap": "Open in Google Maps →"
+  }
+}
+
