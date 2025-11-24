@@ -76,6 +76,13 @@
   "styles": {
     "tag": "Tattoo styles",
     "description": "Familiarize yourself with different tattoo styles. The images presented serve as visual examples for understanding the characteristics of each style and are not the master's works.",
+    "loading": "Loading gallery...",
+    "modal": {
+      "close": "Close",
+      "prevImage": "Previous image",
+      "nextImage": "Next image",
+      "disclaimer": "The images presented serve as visual examples for understanding the characteristics of each style and are not the master's works."
+    },
     "categories": {
       "classic": "Main classic styles",
       "monochrome": "Monochrome styles (Black work)"
@@ -95,4 +102,3 @@
     "openMap": "Open in Google Maps →"
   }
 }
-

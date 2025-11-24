@@ -76,6 +76,13 @@
   "styles": {
     "tag": "Stiluri de tatuaje",
     "description": "Familiarizează-te cu diferite stiluri de tatuaje. Imaginile prezentate servesc ca exemple vizuale pentru înțelegerea caracteristicilor fiecărui stil și nu sunt lucrări ale maestrului.",
+    "loading": "Se încarcă galeria...",
+    "modal": {
+      "close": "Închide",
+      "prevImage": "Imaginea anterioară",
+      "nextImage": "Imaginea următoare",
+      "disclaimer": "Imaginile prezentate servesc ca exemple vizuale pentru înțelegerea caracteristicilor fiecărui stil și nu sunt lucrări ale maestrului."
+    },
     "categories": {
       "classic": "Stiluri clasice principale",
       "monochrome": "Stiluri monocrome (Lucrare neagră)"
@@ -95,4 +102,3 @@
     "openMap": "Deschide în Google Maps →"
   }
 }
-

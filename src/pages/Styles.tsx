@@ -161,7 +161,7 @@ export default function Styles() {
           )
         ) : (
           <div style={{ padding: "2rem", textAlign: "center", color: "white" }}>
-            Загрузка галереи...
+            {t("styles.loading")}
           </div>
         )}
       </div>
@@ -175,7 +175,7 @@ export default function Styles() {
             <button
               className="style-modal-close"
               onClick={closeModal}
-              aria-label="Закрыть"
+              aria-label={t("styles.modal.close")}
             >
               <svg
                 width="22"
@@ -206,7 +206,7 @@ export default function Styles() {
                       e.stopPropagation();
                       prevImage();
                     }}
-                    aria-label="Предыдущее изображение"
+                    aria-label={t("styles.modal.prevImage")}
                   >
                     ‹
                   </button>
@@ -216,7 +216,7 @@ export default function Styles() {
                       e.stopPropagation();
                       nextImage();
                     }}
-                    aria-label="Следующее изображение"
+                    aria-label={t("styles.modal.nextImage")}
                   >
                     ›
                   </button>
@@ -234,7 +234,7 @@ export default function Styles() {
                     e.stopPropagation();
                     prevImage();
                   }}
-                  aria-label="Предыдущее изображение"
+                  aria-label={t("styles.modal.prevImage")}
                 >
                   ‹
                 </button>
@@ -244,7 +244,7 @@ export default function Styles() {
                     e.stopPropagation();
                     nextImage();
                   }}
-                  aria-label="Следующее изображение"
+                  aria-label={t("styles.modal.nextImage")}
                 >
                   ›
                 </button>
@@ -253,6 +253,9 @@ export default function Styles() {
             <div className="style-modal-info">
               <h3>{selectedStyle.title}</h3>
               <p>{selectedStyle.description}</p>
+              <p className="style-modal-disclaimer">
+                {t("styles.modal.disclaimer")}
+              </p>
             </div>
           </div>
         </div>
