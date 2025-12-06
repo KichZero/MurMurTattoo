@@ -1,6 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import type React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./App.css";
 
 import Home from "./pages/Home";
