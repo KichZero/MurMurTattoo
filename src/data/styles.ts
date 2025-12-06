@@ -100,8 +100,8 @@ export const styleCategories = [
         description:
           "Портретные татуировки людей, животных, персонажей. Требует высокого мастерства в передаче черт лица и эмоций.",
         images: [
-          "/tattoostyle/PortraitTattoo /1.jpg",
-          "/tattoostyle/PortraitTattoo /2.jpg",
+          "/tattoostyle/PortraitTattoo/eee.jpg",
+          "/tattoostyle/PortraitTattoo/aaa.jpg",
           "https://i.pinimg.com/1200x/e3/68/b1/e368b12a68f4683cd7474492674ebd56.jpg",
         ],
       },
@@ -288,9 +288,9 @@ export const styleCategories = [
         description:
           "Работа в чёрно-серой гамме. Градиенты, объём, реалистичность без цвета. Классический подход к монохрому.",
         images: [
-          "/tattoostyle/black gray/1.jpg",
-          "/tattoostyle/black gray/2.jpg",
-          "/tattoostyle/black gray/3.jpg",
+          "/tattoostyle/blackgray/1.jpg",
+          "/tattoostyle/blackgray/2.jpg",
+          "/tattoostyle/blackgray/3.jpg",
         ],
       },
     ],
