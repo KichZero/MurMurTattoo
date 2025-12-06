@@ -32,9 +32,9 @@ export const styleCategories = [
         description:
           "Эволюция традиционного стиля. Детализация, расширенная палитра, реалистичные элементы в классической композиции.",
         images: [
-          "https://i.pinimg.com/736x/44/a8/f2/44a8f2f6c685e93f0b289e807b74e994.jpg",
-          "https://i.pinimg.com/1200x/42/31/a6/4231a66293582b48b816b35349b09366.jpg",
-          "https://i.pinimg.com/1200x/4e/a1/c7/4ea1c7e6075ef6ec700782d978f625ca.jpg",
+          "/src/assets/tattoostyle/Neotraditional/1.jpg",
+          "/src/assets/tattoostyle/Neotraditional/2.jpg",
+          "/src/assets/tattoostyle/Neotraditional/3.jpg",
         ],
       },
       {
@@ -50,13 +50,15 @@ export const styleCategories = [
       },
       {
         id: "fine-line",
-        name: "Linework / Fine Line",
+        name: "Linework / Conceptual",
         description:
           "Тонкие линии, детальная проработка, минимальная травматичность. Идеально для небольших работ и надписей.",
         images: [
           "https://i.pinimg.com/736x/62/1d/90/621d90a8bb685c5b660c22cec6a8dd32.jpg",
           "https://i.pinimg.com/736x/49/9b/0a/499b0a1f01ed41b8d1a5529ae44a632e.jpg",
-          "https://i.pinimg.com/736x/79/dd/2f/79dd2f1c2e41d594885887718e994ff6.jpg",
+          "/src/assets/tattoostyle/conceptual/1.jpg",
+          "https://i.pinimg.com/736x/d2/bb/25/d2bb25fd5f8d518c12b3ebd82dbce646.jpg",
+          "https://i.pinimg.com/736x/f5/d8/d0/f5d8d06d2e5aeefec90141836a60483f.jpg",
         ],
       },
       {
@@ -66,13 +68,13 @@ export const styleCategories = [
           "Техника точечной татуировки. Создание объёма и текстуры через точки разной плотности. Часто сочетается с геометрией.",
         images: [
           "https://i.pinimg.com/736x/44/76/25/4476256fb54c1d816f0231fa051dfaa9.jpg",
-          "https://i.pinimg.com/736x/57/8f/0f/578f0f4e48b0de7e110a7abf84e83185.jpg",
-          "https://i.pinimg.com/736x/54/63/f5/5463f5f6b14819d6e2d554408b927733.jpg",
+          "/src/assets/tattoostyle/dotwork/1.jpg",
+          "/src/assets/tattoostyle/dotwork/2.jpg",
         ],
       },
       {
         id: "realism",
-        name: "Realism (Realistic)",
+        name: "Realism Fusion",
         description:
           "Фотореалистичные изображения, портреты, градиенты. Высокая детализация, работа с тенями и светом.",
         images: [
@@ -83,7 +85,7 @@ export const styleCategories = [
       },
       {
         id: "hyperrealism",
-        name: "Hyperrealism",
+        name: "Realism",
         description:
           "Предельная реалистичность, превышающая фотографию. Иллюзия объёма, текстуры, глубины. Максимальная детализация.",
         images: [
@@ -98,8 +100,8 @@ export const styleCategories = [
         description:
           "Портретные татуировки людей, животных, персонажей. Требует высокого мастерства в передаче черт лица и эмоций.",
         images: [
-          "https://i.pinimg.com/736x/9e/52/fe/9e52febc110c6f437996233c16ef0953.jpg",
-          "https://i.pinimg.com/1200x/0d/c6/3a/0dc63a2a48434a688cf1195d83bb0069.jpg",
+          "/src/assets/tattoostyle/PortraitTattoo /1.jpg",
+          "/src/assets/tattoostyle/PortraitTattoo /2.jpg",
           "https://i.pinimg.com/1200x/e3/68/b1/e368b12a68f4683cd7474492674ebd56.jpg",
         ],
       },
@@ -109,8 +111,9 @@ export const styleCategories = [
         description:
           "Минималистичные татуировки. Простые формы, тонкие линии, лаконичные композиции. Меньше — лучше.",
         images: [
-          "https://i.pinimg.com/1200x/4d/d5/70/4dd570af9740d015b4033591022ad2cf.jpg",
-          "https://i.pinimg.com/736x/e1/3e/f2/e13ef2952614d1b4ab399a4fe7a0b26e.jpg",
+          "/src/assets/tattoostyle/minimalism/1.jpg",
+          "/src/assets/tattoostyle/minimalism/2.jpg",
+          "/src/assets/tattoostyle/minimalism/3.jpg",
         ],
       },
       {
@@ -119,8 +122,9 @@ export const styleCategories = [
         description:
           "Геометрические формы, мандалы, сакральная геометрия. Симметрия, точные линии, математическая точность.",
         images: [
-          "https://i.pinimg.com/736x/d2/bb/25/d2bb25fd5f8d518c12b3ebd82dbce646.jpg",
-          "https://i.pinimg.com/736x/f5/d8/d0/f5d8d06d2e5aeefec90141836a60483f.jpg",
+          "/src/assets/tattoostyle/geometric/1.jpg",
+          "/src/assets/tattoostyle/geometric/2.jpg",
+          "/src/assets/tattoostyle/geometric/3.jpg",
         ],
       },
       {
@@ -131,6 +135,7 @@ export const styleCategories = [
         images: [
           "https://i.pinimg.com/1200x/df/f8/c8/dff8c82fa9e627e9e6036641d7336a68.jpg",
           "https://i.pinimg.com/736x/9a/54/c7/9a54c7f84dd46b19319db0fe7e62eeca.jpg",
+          "/src/assets/tattoostyle/chicano/1.jpg",
         ],
       },
       {
@@ -151,6 +156,8 @@ export const styleCategories = [
         images: [
           "https://i.pinimg.com/736x/49/56/45/495645c066e94ee18893c59d26459cf3.jpg",
           "https://i.pinimg.com/1200x/0e/52/ac/0e52ac746a2e5c46636cf9e8b8fbf245.jpg",
+          "/src/assets/tattoostyle/ornamental/q.jpg",
+          "/src/assets/tattoostyle/ornamental/w.jpg",
         ],
       },
       {
@@ -159,8 +166,8 @@ export const styleCategories = [
         description:
           "Имитация акварельной живописи. Плавные переходы цветов, размытые края, эффект растекающихся красок. Художественный и выразительный стиль.",
         images: [
-          "https://rollandfeel.smokingpaper.com/wp-content/uploads/2022/03/watercolor-tattoos-1-min-558x1024.jpg",
-          "https://cdn.shopify.com/s/files/1/0830/2447/8491/files/Screenshot_2024-12-17_at_3.27.37_PM_480x480.png?v=1734429508",
+          "/src/assets/tattoostyle/Watercolor/1.jpg",
+          "/src/assets/tattoostyle/Watercolor/2.jpg",
         ],
       },
       {
@@ -169,18 +176,10 @@ export const styleCategories = [
         description:
           "Традиционный японский стиль. Драконы, карпы, самураи, цветущая сакура. Яркие цвета, детализированные сюжеты, глубокий символизм.",
         images: [
-          "https://images.squarespace-cdn.com/content/66cf55ff6a86ea716f859041/1745514735629-QIKUJ8AZAIDV4NX4X1UQ/Irezumi+tattoos.jpg?content-type=image%2Fjpeg",
-          "https://www.cbinktattoo.com.au/app/uploads/2025/04/Traditional-Japanese-Colour-Watercolour-Realism-Geometric-Irezumi-Tiger-Flowers-Dragons-Armour-Samurai-Dragon-Sword-Weapon-Sharp-Teeth-Horns-Arm-Sleeve-Full-Back-Tattoo-Blog-Article-Image-Cover.jpg",
-        ],
-        },
-      {
-        id: "biomechanical",
-        name: "Biomechanical",
-        description:
-          "Сочетание органических и механических элементов. Эффект механизмов под кожей, шестерни, провода, переплетающиеся с мышцами и костями.",
-        images: [
-          "https://i.pinimg.com/736x/bd/c9/74/bdc97423a54e28529fe4f5ccac77550d.jpg",
-          "https://i.pinimg.com/736x/3e/16/db/3e16dbf813cae25a6df6f87c8e093dbc.jpg",
+          "/src/assets/tattoostyle/japan/1.jpg",
+          "/src/assets/tattoostyle/japan/2.jpg",
+          "/src/assets/tattoostyle/japan/3.jpg",
+          "/src/assets/tattoostyle/japan/4.jpg",
         ],
       },
       {
@@ -211,6 +210,7 @@ export const styleCategories = [
         images: [
           "https://i.pinimg.com/736x/8c/d2/14/8cd214eb1fe4be619f1324fe87ddaf2f.jpg",
           "https://i.pinimg.com/736x/d2/ce/e7/d2cee72dd7ca57bae23e0e6e70f3ac0e.jpg",
+          "https://i.pinimg.com/736x/02/d1/30/02d1309f50a60bd3eebc3b0391b55fb6.jpg",
         ],
       },
       {
@@ -219,8 +219,9 @@ export const styleCategories = [
         description:
           "Абстрактные композиции. Свободные формы, цветовые пятна, нефигуративные изображения. Уникальность и самовыражение.",
         images: [
-          "https://i.pinimg.com/1200x/df/71/b4/df71b4fc8cfc2f503441ee84787552b3.jpg",
-          "https://i.pinimg.com/736x/02/d1/30/02d1309f50a60bd3eebc3b0391b55fb6.jpg",
+          "/src/assets/tattoostyle/abstaraction/1.jpg",
+          "/src/assets/tattoostyle/abstaraction/2.jpg",
+          "/src/assets/tattoostyle/abstaraction/3.jpg",
         ],
       },
       {
@@ -230,7 +231,30 @@ export const styleCategories = [
           "Объёмные татуировки с эффектом 3D. Иллюзия глубины, объёма, выхода за пределы кожи. Современный и впечатляющий стиль.",
         images: [
           "https://i.pinimg.com/736x/15/0f/a1/150fa1b86fbfd0ff7b371b08898a04dd.jpg",
-          "https://i.pinimg.com/1200x/e4/49/b7/e449b7a855af2ca7df7837fb4e229320.jpg",
+          "/src/assets/3d/1.jpg",
+          "/src/assets/3d/2.jpg",
+        ],
+      },
+      {
+        id: "optic-illusion",
+        name: "Optic Illusion",
+        description:
+          "Оптические иллюзии и обман зрения. Трёхмерные эффекты, искажения перспективы, визуальные парадоксы. Завораживающие и интригующие татуировки.",
+        images: [
+          "/src/assets/tattoostyle/illusion/1.jpg",
+          "/src/assets/tattoostyle/illusion/2.jpg",
+        ],
+      },
+      {
+        id: "cartoon",
+        name: "Cartoon Tattoo",
+        description:
+          "Мультяшный стиль татуировок. Яркие цвета, выразительные персонажи, игривая эстетика. От классических мультфильмов до современных анимационных стилей. Идеально для тех, кто хочет добавить веселья и индивидуальности.",
+        images: [
+          "/src/assets/tattoostyle/cartoon/1.jpg",
+          "/src/assets/tattoostyle/cartoon/2.jpg",
+          "/src/assets/tattoostyle/cartoon/photo_2025-12-06 14.19.52.jpeg",
+          "/src/assets/tattoostyle/cartoon/photo_2025-12-06 14.19.55.jpeg",
         ],
       },
       {
@@ -240,7 +264,8 @@ export const styleCategories = [
           "Эскизный стиль. Имитация карандашного рисунка, набросков, незавершённых линий. Художественная небрежность и выразительность.",
         images: [
           "https://i.pinimg.com/1200x/c4/97/20/c49720a0fa633d943af126103c9ddf29.jpg",
-          "https://i.pinimg.com/736x/57/04/40/570440e8d7d7ac832c0d0457f4968dfe.jpg",
+          "/src/assets/tattoostyle/sketchstyle/1.jpg",
+          "/src/assets/tattoostyle/sketchstyle/2.jpg",
         ],
       },
       {
@@ -250,7 +275,8 @@ export const styleCategories = [
           "Стиль гравюры. Чёткие линии, штриховка, перекрёстная штриховка. Напоминает старинные гравюры и иллюстрации.",
         images: [
           "https://i.pinimg.com/736x/ef/db/59/efdb595c27eb16b1fe7c7790148de8a7.jpg",
-          "https://i.pinimg.com/736x/8e/08/83/8e08838a5f1b2d977566443ca07485bc.jpg",
+          "/src/assets/tattoostyle/engraving/2.jpg",
+          "/src/assets/tattoostyle/engraving/3.jpg",
         ],
       },
     ],
@@ -265,8 +291,9 @@ export const styleCategories = [
         description:
           "Работа в чёрно-серой гамме. Градиенты, объём, реалистичность без цвета. Классический подход к монохрому.",
         images: [
-          "https://tattooing101.com/wp-content/uploads/2021/11/Blackwork-tattoos.jpg",
-          "https://cdn.shopify.com/s/files/1/0315/6970/7052/files/realism-tattoo-style.png?v=1678396653",
+          "/src/assets/tattoostyle/black gray/1.jpg",
+          "/src/assets/tattoostyle/black gray/2.jpg",
+          "/src/assets/tattoostyle/black gray/3.jpg",
         ],
       },
     ],

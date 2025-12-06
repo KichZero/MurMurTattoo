@@ -80,7 +80,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <LanguageProvider>
-        <App />
+      <App />
       </LanguageProvider>
     </BrowserRouter>
   </StrictMode>

@@ -3,16 +3,16 @@ import { useLanguage } from "../contexts/LanguageContext";
 export default function Process() {
   const { t } = useLanguage();
 
-  const processSteps = [
-    {
+const processSteps = [
+  {
       label: t("process.steps.consultation.label"),
       items: t("process.steps.consultation.items") as string[],
-    },
-    {
+  },
+  {
       label: t("process.steps.process.label"),
       items: t("process.steps.process.items") as string[],
-    },
-    {
+  },
+  {
       label: t("process.steps.aftercare.label"),
       items: t("process.steps.aftercare.items") as string[],
     },

@@ -6,20 +6,20 @@ const batIconPath =
 export default function Benefits() {
   const { t } = useLanguage();
 
-  const benefits = [
-    {
+const benefits = [
+  {
       title: t("benefits.items.individual.title"),
       text: t("benefits.items.individual.text"),
-    },
-    {
+  },
+  {
       title: t("benefits.items.visualization.title"),
       text: t("benefits.items.visualization.text"),
-    },
-    {
+  },
+  {
       title: t("benefits.items.pricing.title"),
       text: t("benefits.items.pricing.text"),
-    },
-  ];
+  },
+];
 
   return (
     <section className="benefits" id="benefits">
