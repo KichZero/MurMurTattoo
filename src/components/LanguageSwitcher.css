@@ -27,6 +27,8 @@
     rgba(0, 0, 0, 0.739),
     rgba(0, 0, 0, 0.726)
   );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-color: rgba(54, 127, 175, 0.7);
   box-shadow: 0 4px 16px rgba(54, 127, 175, 0.3),
     0 0 0 2px rgba(54, 127, 175, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -49,6 +51,8 @@
     rgba(54, 127, 175, 0.2),
     rgba(54, 127, 175, 0.1)
   );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 2px solid rgba(54, 127, 175, 0.5);
   color: #4a9fd4;
   font-size: 0.8rem;
@@ -157,6 +161,8 @@
     rgba(54, 127, 175, 0.3),
     rgba(54, 127, 175, 0.2)
   );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-color: rgba(54, 127, 175, 0.7);
   transform: scale(1.05);
   box-shadow: 0 4px 16px rgba(54, 127, 175, 0.3),

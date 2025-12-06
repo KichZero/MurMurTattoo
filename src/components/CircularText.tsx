@@ -126,7 +126,7 @@ export default function CircularText({
         <text
           fill="#FF0C04"
           fontSize={fontSize}
-          fontFamily="Reggae One, sans-serif"
+          fontFamily="Montserrat, sans-serif"
           fontWeight="400"
           className="circular-text-neon"
         >
@@ -144,7 +144,7 @@ export default function CircularText({
         <text
           fill="#FF0C04"
           fontSize={fontSize}
-          fontFamily="Reggae One, sans-serif"
+          fontFamily="Montserrat, sans-serif"
           fontWeight="400"
           className="circular-text-neon"
         >

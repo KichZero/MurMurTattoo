@@ -1,4 +1,5 @@
 import { useEffect, useState, lazy, Suspense } from "react";
+import type React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 
@@ -15,8 +16,23 @@ const Styles = lazy(() => import("./pages/Styles"));
 const Feed = lazy(cachedLazy(() => import("./pages/Feed"), "Feed"));
 const Booking = lazy(cachedLazy(() => import("./pages/Booking"), "Booking"));
 
+// Keep-alive компонент для сохранения состояния при переключении маршрутов
+function KeepAlive({ children, isActive }: { children: React.ReactNode; isActive: boolean }) {
+  return (
+    <div style={{ display: isActive ? "block" : "none" }}>
+      {children}
+    </div>
+  );
+}
+
 function AppContent() {
   const location = useLocation();
+  const [loadedComponents, setLoadedComponents] = useState<Set<string>>(new Set(["/"]));
+
+  useEffect(() => {
+    // Добавляем текущий маршрут в список загруженных компонентов
+    setLoadedComponents((prev) => new Set([...prev, location.pathname]));
+  }, [location.pathname]);
 
   return (
     <div>
@@ -50,14 +66,35 @@ function AppContent() {
           </div>
         }
       >
-        <Routes location={location}>
-          <Route path="/" element={<Home />} />
-          <Route path="/benefits" element={<Benefits />} />
-          <Route path="/process" element={<Process />} />
-          <Route path="/styles" element={<Styles />} />
-          <Route path="/feed" element={<Feed />} />
-          <Route path="/booking" element={<Booking />} />
-        </Routes>
+        {/* Используем условный рендеринг вместо Routes для keep-alive */}
+        <KeepAlive isActive={location.pathname === "/"}>
+          <Home />
+        </KeepAlive>
+        {loadedComponents.has("/benefits") && (
+          <KeepAlive isActive={location.pathname === "/benefits"}>
+            <Benefits />
+          </KeepAlive>
+        )}
+        {loadedComponents.has("/process") && (
+          <KeepAlive isActive={location.pathname === "/process"}>
+            <Process />
+          </KeepAlive>
+        )}
+        {loadedComponents.has("/styles") && (
+          <KeepAlive isActive={location.pathname === "/styles"}>
+            <Styles />
+          </KeepAlive>
+        )}
+        {loadedComponents.has("/feed") && (
+          <KeepAlive isActive={location.pathname === "/feed"}>
+            <Feed />
+          </KeepAlive>
+        )}
+        {loadedComponents.has("/booking") && (
+          <KeepAlive isActive={location.pathname === "/booking"}>
+            <Booking />
+          </KeepAlive>
+        )}
       </Suspense>
     </div>
   );
@@ -113,7 +150,6 @@ function App() {
       <div className="background-container">
         <div className="stars"></div>
         <div className="twinkling"></div>
-        <div className="clouds"></div>
         <div className="background-overlay"></div>
       </div>
       {isLoading && (

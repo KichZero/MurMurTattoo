@@ -97,9 +97,15 @@ export default function Home() {
                 rel="noreferrer"
               >
                 <span>{t("home.telegram")}</span>
+                <svg className="btn-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </a>
               <Link className="btn btn-secondary" to="/booking">
                 <span>{t("home.book")}</span>
+                <svg className="btn-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </Link>
             </div>
             <div className="hero-stats">
