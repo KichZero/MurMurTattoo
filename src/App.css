@@ -110,17 +110,12 @@ img {
 
 /* Flying Bats удалены - не используются */
 
-/* Background Pattern Overlay */
+/* Background Pattern Overlay - отключен для анимированного фона */
 .site::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(
-      circle at 20% 50%,
-      rgba(139, 0, 0, 0.05) 0%,
-      transparent 50%
-    ),
-    radial-gradient(circle at 80% 80%, rgba(75, 0, 0, 0.05) 0%, transparent 50%);
+  background-image: none;
   pointer-events: none;
   z-index: 0;
 }
@@ -1395,19 +1390,22 @@ img {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   overflow: hidden;
+  pointer-events: none;
 }
 
-.background-container img {
-  height: 70vh;
-  width: 70vh;
+.background-overlay {
   position: absolute;
-  z-index: 3;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  object-fit: contain;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .stars {
@@ -1419,6 +1417,7 @@ img {
   right: 0;
   display: block;
   z-index: 0;
+  opacity: 0.8;
 }
 
 .twinkling {
@@ -1431,6 +1430,7 @@ img {
   top: 0;
   bottom: 0;
   z-index: 2;
+  opacity: 0.6;
   -moz-animation: move-background 70s linear infinite;
   -ms-animation: move-background 70s linear infinite;
   -o-animation: move-background 70s linear infinite;
@@ -1448,6 +1448,7 @@ img {
   top: 0;
   bottom: 0;
   z-index: 3;
+  opacity: 0.5;
   -moz-animation: move-background 150s linear infinite;
   -ms-animation: move-background 150s linear infinite;
   -o-animation: move-background 150s linear infinite;
@@ -1455,13 +1456,6 @@ img {
   animation: move-background 150s linear infinite;
 }
 
-@media (max-width: 768px) {
-  .background-container img {
-    height: 50vh;
-    width: 50vh;
-    right: 10px;
-  }
-}
 
 /* Small mobile devices */
 @media (max-width: 480px) {

@@ -20,12 +20,6 @@ function AppContent() {
 
   return (
     <div>
-      <div className="background-container">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="" />
-        <div className="stars"></div>
-        <div className="twinkling"></div>
-        <div className="clouds"></div>
-      </div>
       <Suspense
         fallback={
           <div
@@ -116,6 +110,12 @@ function App() {
 
   return (
     <div className={`site ${isLoading ? "site--loading" : ""}`}>
+      <div className="background-container">
+        <div className="stars"></div>
+        <div className="twinkling"></div>
+        <div className="clouds"></div>
+        <div className="background-overlay"></div>
+      </div>
       {isLoading && (
         <div className="loader-overlay">
           <div className="loader-spinner" />
